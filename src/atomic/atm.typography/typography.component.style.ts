@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { FontFamily, FontSize, FontWeight, LineHeight } from 'app/constants';
+import { FontFamily, FontSize, FontWeight, LineHeight, StaticColor } from 'app/constants';
 
 import { TitleProps, TextProps } from './typography';
 import { DisplayStyle } from 'app/styled-css/display.style/display.style';
@@ -16,7 +16,7 @@ export const TitleStyled = styled('h3').attrs<TitleProps>(({ htmlTag }) => ({
 
     flex-flow: ;
 
-    color: ${(props) => props.theme.colors[textColor]};
+    color: ${(props) => StaticColor[textColor]};
 
     ${size === 'XNano' && `line-height: ${LineHeight.Large};`}
     ${(size === 'Nano' || size === 'XSmall' || size === 'Small') && `line-height: ${LineHeight.Medium};`}
@@ -36,7 +36,7 @@ export const TextStyled = styled('p').attrs<TextProps>(({ htmlTag }) => ({
     font-size: ${FontSize[size]};
     font-family: ${FontFamily.Primary};
 
-    color: ${(props) => props.theme.colors[textColor]};
+    color: ${(props) => StaticColor[textColor]};
 
     ${size === 'XNano' && `line-height: ${LineHeight.Large};`}
     ${(size === 'Nano' || size === 'XSmall' || size === 'Small') && `line-height: ${LineHeight.Medium};`}

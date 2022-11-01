@@ -2,7 +2,7 @@
 /* eslint-disable indent */
 import styled, { css, keyframes } from 'styled-components';
 
-import { Border, LineHeight, Radius, Spacing, Transition } from 'app/constants';
+import { Border, LineHeight, Radius, Spacing, StaticColor, Transition } from 'app/constants';
 import { getButtonType } from 'utils/get-button-type';
 
 import { IconButtonStyledProps } from './icon-button.d';
@@ -64,10 +64,10 @@ export const IconButtonStyled = styled.button<IconButtonStyledProps>`
 
     box-shadow: ${(props) =>
       props.border
-        ? `${Border.All} ${getIconButtonTypeProps(props)?.borderColor}, 0 0 0 2px ${
-            props.theme?.colors?.white
-          }, 0 0 0 4px ${props.theme?.colors?.black}`
-        : ` 0 0 0 2px ${props.theme?.colors?.white}, 0 0 0 4px ${props.theme?.colors?.black}`};
+        ? `${Border.All} ${getIconButtonTypeProps(props)?.borderColor}, 0 0 0 2px ${StaticColor.White}, 0 0 0 4px ${
+            StaticColor.Black
+          }`
+        : ` 0 0 0 2px ${StaticColor.White}, 0 0 0 4px ${StaticColor.Black}`};
   }
 
   white-space: nowrap;
