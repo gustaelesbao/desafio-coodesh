@@ -7,28 +7,37 @@ import { PaddingStyle } from 'app/styled-css/padding.style/padding.style';
 import { WidthStyle } from 'app/styled-css/width.style/width.style';
 
 import { FlexProps } from './flex';
+import { StaticColor } from 'app/constants';
 
 export const FlexStyled = styled('div').attrs<FlexProps>(({ htmlTag }) => ({
   as: `${htmlTag ? htmlTag : 'div'}`,
 }))<FlexProps>`
-  display: flex;
+  ${({ backgroundColor = StaticColor.Transparent }) => css`
+    display: flex;
 
-  ${PaddingStyle};
-  ${MarginStyle};
-  ${FlexStyle};
-  ${WidthStyle};
-  ${HeightStyle};
+    background-color: ${backgroundColor};
+
+    ${PaddingStyle};
+    ${MarginStyle};
+    ${FlexStyle};
+    ${WidthStyle};
+    ${HeightStyle};
+  `}
 `;
 
 export const FlexItemStyled = styled('div').attrs<FlexProps>(({ htmlTag }) => ({
   as: `${htmlTag ? htmlTag : 'div'}`,
 }))<FlexProps>`
-  display: flex;
-  flex: 1;
+  ${({ backgroundColor = StaticColor.Transparent }) => css`
+    display: flex;
+    flex: 1;
 
-  ${PaddingStyle};
-  ${MarginStyle};
-  ${FlexStyle};
-  ${WidthStyle};
-  ${HeightStyle};
+    background-color: ${backgroundColor};
+
+    ${PaddingStyle};
+    ${MarginStyle};
+    ${FlexStyle};
+    ${WidthStyle};
+    ${HeightStyle};
+  `}
 `;

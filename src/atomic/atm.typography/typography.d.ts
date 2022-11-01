@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
-import { FontSizes, FontWeight } from 'atomic/constants';
+import { FontSizes, FontWeight } from 'app/constants';
 import { DisplayStyleProps } from 'app/styled-css/display.style/display';
 import { TextAlignStyleProps } from 'app/styled-css/text-align/text-align';
 import React from 'react';

@@ -15,5 +15,7 @@ export interface FlexProps
     WidthStyleProps,
     HeightStyleProps,
     React.PropsWithChildren {
-  htmlTag?: 'article' | 'aside' | 'div' | 'footer' | 'header' | 'main' | 'span' | 'section';
+  backgroundColor?: string;
+
+  htmlTag?: 'article' | 'aside' | 'div' | 'footer' | 'header' | 'main' | 'span' | 'section' | 'nav';
 }

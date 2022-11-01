@@ -21,5 +21,5 @@ export interface BoxProps
     BorderRadiusStyleProps {
   backgroundColor?: string;
 
-  htmlTag?: 'article' | 'aside' | 'div' | 'footer' | 'header' | 'main' | 'span' | 'section';
+  htmlTag?: 'article' | 'aside' | 'div' | 'footer' | 'header' | 'main' | 'span' | 'section' | 'nav';
 }

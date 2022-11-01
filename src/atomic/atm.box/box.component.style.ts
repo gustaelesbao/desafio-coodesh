@@ -10,11 +10,12 @@ import { PositionStyle } from 'app/styled-css/position.style/position.style';
 import { WidthStyle } from 'app/styled-css/width.style/width.style';
 
 import { BoxProps } from './box';
+import { StaticColor } from 'app/constants';
 
 export const BoxStyled = styled('div').attrs<BoxProps>(({ htmlTag }) => ({
   as: `${htmlTag ? htmlTag : 'div'}`,
 }))<BoxProps>`
-  ${({ backgroundColor = 'White' }) => css`
+  ${({ backgroundColor = StaticColor.White }) => css`
     background-color: ${backgroundColor};
 
     ${BorderRadiusStyle};
