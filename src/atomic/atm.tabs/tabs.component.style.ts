@@ -55,7 +55,7 @@ export const TabsTriggerStyled = styled(TabsPrimitive.Trigger)`
 
   &:focus {
     z-index: 2;
-    box-shadow: ${(props) => `0 0 0 2px ${props.theme?.colors?.white}, 0 0 0 4px ${props.theme?.colors?.black}`};
+    box-shadow: ${(props) => `0 0 0 2px ${StaticColor.White}, 0 0 0 4px ${StaticColor.Black}`};
   }
 `;
 
