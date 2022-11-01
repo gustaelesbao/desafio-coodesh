@@ -1,6 +1,8 @@
+import { Button } from 'atomic/atm.button';
+import { Loader } from 'atomic/atm.loader';
 import Head from 'next/head';
 
-export default function Home() {
+const HomePage = () => {
   return (
     <>
       <Head>
@@ -11,7 +13,13 @@ export default function Home() {
 
       <main>
         <h1>Olá mundo!</h1>
+        <Button kind='secondary' variation='light' loading>
+          Botão de teste
+        </Button>
+        <Loader />
       </main>
     </>
   );
-}
+};
+
+export default HomePage;
