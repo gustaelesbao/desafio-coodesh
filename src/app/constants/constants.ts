@@ -1,3 +1,6 @@
+import { Inter } from '@next/font/google'
+
+
 export const FontFamily = {
   Primary: 'Inter, open-sans,sans-serif',
 };
