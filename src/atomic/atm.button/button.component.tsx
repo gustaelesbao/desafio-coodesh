@@ -1,4 +1,6 @@
 /* eslint-disable react/display-name */
+import { LineHeight, Spacing } from 'app/constants';
+import { Loader } from 'atomic/atm.loader';
 import React, { forwardRef } from 'react';
 
 import { ButtonStyledProps } from './button';
@@ -27,7 +29,7 @@ export const Button = forwardRef<HTMLButtonElement, React.PropsWithChildren<Butt
         kind={props.kind ? props.kind : 'primary'}
         variation={props.variation ? props.variation : 'solid'}
       >
-        Carregando
+        <Loader color='inherit' size='100%' weight={Spacing.Size3px} />
       </ButtonLoaderStyled>
     </ButtonStyled>
   );

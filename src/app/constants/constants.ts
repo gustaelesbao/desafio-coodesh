@@ -1,5 +1,4 @@
-import { Inter } from '@next/font/google'
-
+import { Inter } from '@next/font/google';
 
 export const FontFamily = {
   Primary: 'Inter, open-sans,sans-serif',
@@ -97,7 +96,9 @@ export const Shadow = {
 
 /** O Sistema de Spacing utiliza um número X base de 0.25rem, ou seja Spacing.X3 é igual a 0.75rem */
 export const Spacing = {
-  None: '0',
+  Size0X: '0',
+  Size1px: '1px',
+  Size3px: '3px',
   Size0_5X: '0.125rem',
   Size1X: '0.25rem',
   Size2X: '0.5rem',

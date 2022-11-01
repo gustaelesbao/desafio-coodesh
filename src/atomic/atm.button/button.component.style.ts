@@ -128,7 +128,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
       font-size: ${FontSize.Nano};
     `};
 
-  ${(props) => props.noPadding && `padding: ${Spacing.None}`};
+  ${(props) => props.noPadding && `padding: ${Spacing.Size0X}`};
 `;
 
 export const ButtonContentStyled = styled.div<ButtonStyledProps>`
@@ -142,16 +142,17 @@ export const ButtonContentStyled = styled.div<ButtonStyledProps>`
   justify-content: center;
 
   & > svg {
-    width: 1.5em;
-    height: 1.5em;
+    width: ${LineHeight.Medium};
+    height: ${LineHeight.Medium};
   }
 `;
 
 export const ButtonLoaderStyled = styled.span<ButtonStyledProps>`
   position: absolute;
   display: flex;
-  width: fit-content;
-  height: 56%;
+  width: ${LineHeight.XNano};
+  height: ${LineHeight.XNano};
+  font-size: ${LineHeight.Medium};
 
   stroke: ${(props) => getButtonTypeProps(props)?.hoverTextColor};
 
