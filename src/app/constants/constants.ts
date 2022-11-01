@@ -1,3 +1,5 @@
+import { Inter } from '@next/font/google';
+
 export const FontFamily = {
   Primary: 'Inter, open-sans,sans-serif',
 };
@@ -33,6 +35,15 @@ export const Breakpoint = {
   Medium: '991px',
   Large: '1199px',
   XLarge: '1599px',
+  XXLarge: '1600px',
+};
+
+export const ContainerMaxWidth = {
+  XSmall: '400px',
+  Small: '780px',
+  Medium: '860px',
+  Large: '1080px',
+  XLarge: '1152px',
   XXLarge: '1600px',
 };
 
@@ -85,7 +96,9 @@ export const Shadow = {
 
 /** O Sistema de Spacing utiliza um número X base de 0.25rem, ou seja Spacing.X3 é igual a 0.75rem */
 export const Spacing = {
-  None: '0',
+  Size0X: '0',
+  Size1px: '1px',
+  Size3px: '3px',
   Size0_5X: '0.125rem',
   Size1X: '0.25rem',
   Size2X: '0.5rem',
@@ -103,13 +116,7 @@ export const Spacing = {
   Size14X: '3.5rem',
   Size15X: '3.75rem',
   Size16X: '4rem',
-  Size17X: '4.25rem',
-  Size18X: '4.5rem',
-  Size19X: '4.75rem',
   Size20X: '5rem',
-  Size21X: '5.25rem',
-  Size22X: '5.5rem',
-  Size23X: '5.75rem',
   Size24X: '6rem',
   Size28X: '7rem',
   Size32X: '8rem',
@@ -123,9 +130,15 @@ export const Spacing = {
   Size64X: '16rem',
   Size68X: '17rem',
   Size72X: '18rem',
-  Size76X: '19rem',
   Size80X: '20rem',
+  Size96X: '24rem',
   Size100X: '25rem',
+  Size120X: '30rem',
+  Size140X: '35rem',
+  Size160X: '40rem',
+  Size180X: '45rem',
+  Size220X: '55rem',
+  Size260X: '65rem',
 };
 
 export const Transparence = {
