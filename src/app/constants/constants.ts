@@ -47,10 +47,10 @@ export enum BreakpointTypes {
 
 export const MediaQueries = {
   xs: `(max-width: ${Breakpoint.XSmall})`,
-  sm: `(max-width: ${Breakpoint.Small})`,
-  md: `(max-width: ${Breakpoint.Medium})`,
-  lg: `(max-width: ${Breakpoint.Large})`,
-  xl: `(max-width: ${Breakpoint.XLarge})`,
+  sm: `(min-width: ${Breakpoint.Small})`,
+  md: `(min-width: ${Breakpoint.Medium})`,
+  lg: `(min-width: ${Breakpoint.Large})`,
+  xl: `(min-width: ${Breakpoint.XLarge})`,
   xxl: `(min-width: ${Breakpoint.XXLarge})`,
 };
 
