@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { doubleResponsiveProps, responsiveStyleProp } from 'redesign/utils/resposive-props';
+import { doubleResponsiveProps, responsiveStyleProp } from 'utils/resposive-props';
 
 import { MarginStyleProps } from './margin';
 

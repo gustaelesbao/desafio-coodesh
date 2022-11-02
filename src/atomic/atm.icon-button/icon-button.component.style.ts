@@ -2,7 +2,7 @@
 /* eslint-disable indent */
 import styled, { css, keyframes } from 'styled-components';
 
-import { Border, LineHeight, Radius, Spacing, Transition } from 'app/constants';
+import { Border, LineHeight, Radius, Spacing, StaticColor, Transition } from 'app/constants';
 import { getButtonType } from 'utils/get-button-type';
 
 import { IconButtonStyledProps } from './icon-button.d';
@@ -29,6 +29,7 @@ export const IconButtonStyled = styled.button<IconButtonStyledProps>`
   justify-content: center;
 
   width: ${Spacing.Size12X};
+  min-width: ${Spacing.Size12X};
   height: ${Spacing.Size12X};
 
   background-color: ${(props) => getIconButtonTypeProps(props)?.shapeColor};
@@ -64,10 +65,10 @@ export const IconButtonStyled = styled.button<IconButtonStyledProps>`
 
     box-shadow: ${(props) =>
       props.border
-        ? `${Border.All} ${getIconButtonTypeProps(props)?.borderColor}, 0 0 0 2px ${
-            props.theme?.colors?.white
-          }, 0 0 0 4px ${props.theme?.colors?.black}`
-        : ` 0 0 0 2px ${props.theme?.colors?.white}, 0 0 0 4px ${props.theme?.colors?.black}`};
+        ? `${Border.All} ${getIconButtonTypeProps(props)?.borderColor}, 0 0 0 2px ${StaticColor.White}, 0 0 0 4px ${
+            StaticColor.Black
+          }`
+        : ` 0 0 0 2px ${StaticColor.White}, 0 0 0 4px ${StaticColor.Black}`};
   }
 
   white-space: nowrap;
@@ -89,6 +90,7 @@ export const IconButtonStyled = styled.button<IconButtonStyledProps>`
     css`
       height: ${Spacing.Size14X};
       width: ${Spacing.Size14X};
+      min-width: ${Spacing.Size14X};
       font-size: ${Spacing.Size8X};
     `};
 
@@ -97,6 +99,7 @@ export const IconButtonStyled = styled.button<IconButtonStyledProps>`
     css`
       height: ${Spacing.Size10X};
       width: ${Spacing.Size10X};
+      min-width: ${Spacing.Size10X};
       font-size: ${Spacing.Size6X};
     `};
 
@@ -105,6 +108,7 @@ export const IconButtonStyled = styled.button<IconButtonStyledProps>`
     css`
       height: ${Spacing.Size9X};
       width: ${Spacing.Size9X};
+      min-width: ${Spacing.Size9X};
       font-size: ${Spacing.Size5X};
     `};
 
@@ -113,6 +117,7 @@ export const IconButtonStyled = styled.button<IconButtonStyledProps>`
     css`
       height: ${Spacing.Size7X};
       width: ${Spacing.Size7X};
+      min-width: ${Spacing.Size7X};
       font-size: ${Spacing.Size4X};
     `};
 `;
@@ -124,8 +129,8 @@ export const IconButtonContentStyled = styled.div<IconButtonStyledProps>`
 
   display: flex;
   gap: ${Spacing.Size2X};
-  width: 1em;
-  height: 1em;
+  width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: center;
 

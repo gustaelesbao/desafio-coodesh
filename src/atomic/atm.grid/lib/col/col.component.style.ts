@@ -31,9 +31,9 @@ export const ColStyled = styled.div<ColProps>`
   ${(props) =>
     props.xxl &&
     css`
-      -ms-flex-preferred-size: calc((100% / ${gridConfigs.xxl?.columns}) * (${props.xxl}));
-      max-width: calc((100% / ${gridConfigs.xxl?.columns}) * (${props.xxl}));
-      flex-basis: calc((100% / ${gridConfigs.xxl?.columns}) * (${props.xxl}));
+      -ms-flex-preferred-size: calc((100% / ${gridConfigs.xs?.columns}) * (${props.xs}));
+      max-width: calc((100% / ${gridConfigs.xs?.columns}) * (${props.xs}));
+      flex-basis: calc((100% / ${gridConfigs.xs?.columns}) * (${props.xs}));
     `};
 
   ${(props) =>
@@ -48,9 +48,9 @@ export const ColStyled = styled.div<ColProps>`
   ${(props) =>
     props.all &&
     css`
-      -ms-flex-preferred-size: calc((100% / ${gridConfigs.xxl?.columns}) * (${props.all}));
-      max-width: calc((100% / ${gridConfigs.xxl?.columns}) * (${props.all}));
-      flex-basis: calc((100% / ${gridConfigs.xxl?.columns}) * (${props.all}));
+      -ms-flex-preferred-size: calc((100% / ${gridConfigs.xs?.columns}) * (${props.all}));
+      max-width: calc((100% / ${gridConfigs.xs?.columns}) * (${props.all}));
+      flex-basis: calc((100% / ${gridConfigs.xs?.columns}) * (${props.all}));
     `};
 
   ${(props) =>

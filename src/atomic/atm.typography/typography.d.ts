@@ -1,12 +1,19 @@
 import { DefaultTheme } from 'styled-components';
 
-import { FontSizes, FontWeight } from 'atomic/constants';
+import { FontSizes, FontWeight } from 'app/constants';
 import { DisplayStyleProps } from 'app/styled-css/display.style/display';
 import { TextAlignStyleProps } from 'app/styled-css/text-align/text-align';
 import React from 'react';
+import { MarginStyleProps } from 'app/styled-css/margin.style/margin';
+import { PaddingStyleProps } from 'app/styled-css/padding.style/padding';
 
-export interface TitleProps extends DisplayStyleProps, TextAlignStyleProps, React.PropsWithChildren {
-  textColor?: keyof DefaultTheme['colors'];
+export interface TitleProps
+  extends DisplayStyleProps,
+    MarginStyleProps,
+    PaddingStyleProps,
+    TextAlignStyleProps,
+    React.PropsWithChildren {
+  textColor?: string;
   size?: keyof typeof FontSizes;
 
   /** Peso da fonte:
@@ -23,8 +30,13 @@ export interface TitleProps extends DisplayStyleProps, TextAlignStyleProps, Reac
   htmlTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
-export interface TextProps extends DisplayStyleProps, TextAlignStyleProps, React.PropsWithChildren {
-  textColor?: keyof DefaultTheme['colors'];
+export interface TextProps
+  extends DisplayStyleProps,
+    TextAlignStyleProps,
+    MarginStyleProps,
+    PaddingStyleProps,
+    React.PropsWithChildren {
+  textColor?: string;
   size?: keyof typeof FontSizes;
 
   /** Peso da fonte:

@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { responsiveStyleProp } from 'redesign/utils/resposive-props';
+import { responsiveStyleProp } from 'utils/resposive-props';
 
 import { WidthStyleProps } from './width';
 

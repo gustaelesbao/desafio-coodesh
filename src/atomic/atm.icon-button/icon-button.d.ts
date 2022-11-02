@@ -1,4 +1,4 @@
-import { Radius } from 'atomic/constants';
+import { Radius } from 'app/constants';
 
 import { ButtonKind } from '../atm.button/button';
 

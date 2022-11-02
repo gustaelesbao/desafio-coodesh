@@ -25,13 +25,13 @@ export const GridStyled = styled.div<GridProps>`
   margin-right: auto;
   width: 100%;
 
-  max-width: ${(props) => (props.fluidXxl ? `100%` : gridConfigs?.xxl?.containerMaxWidth)};
+  max-width: ${(props) => (props.fluidXxl ? `100%` : gridConfigs?.xs?.containerMaxWidth)};
 
   ${PositionStyle};
 
   ${enumToArray(BreakpointTypes).map(
     (breakpoint) => css<GridProps>`
-      ${`@media only screen and ${MediaQueries[breakpoint]}`} {
+      ${`@media ${MediaQueries[breakpoint]}`} {
         ${(props) =>
           css<GridProps>`
             padding-left: ${props.noGutter ? 0 : `calc(${gridConfigs[breakpoint]?.gutter} * 2)`};
