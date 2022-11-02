@@ -1,22 +1,24 @@
 import styled, { css } from 'styled-components';
 
-import { FontFamily, FontSize, FontWeight, LineHeight } from 'app/constants';
+import { FontFamily, FontSize, FontWeight, LineHeight, StaticColor } from 'app/constants';
 
 import { TitleProps, TextProps } from './typography';
 import { DisplayStyle } from 'app/styled-css/display.style/display.style';
 import { TextAlignStyle } from 'app/styled-css/text-align/text-align.style';
+import { PaddingStyle } from 'app/styled-css/padding.style/padding.style';
+import { MarginStyle } from 'app/styled-css/margin.style/margin.style';
 
 export const TitleStyled = styled('h3').attrs<TitleProps>(({ htmlTag }) => ({
   as: `${htmlTag ? htmlTag : 'h3'}`,
 }))<TitleProps>`
-  ${({ size = 'Large', fontWeight = 'Bold', textColor = 'gray900', display = 'block' }) => css`
+  ${({ size = 'Large', fontWeight = 'Bold', textColor = StaticColor.Gray900, display = 'block' }) => css`
     font-size: ${FontSize[size]};
     font-family: ${FontFamily.Primary};
     font-weight: ${FontWeight[fontWeight]};
 
     flex-flow: ;
 
-    color: ${(props) => props.theme.colors[textColor]};
+    color: ${textColor};
 
     ${size === 'XNano' && `line-height: ${LineHeight.Large};`}
     ${(size === 'Nano' || size === 'XSmall' || size === 'Small') && `line-height: ${LineHeight.Medium};`}
@@ -26,17 +28,19 @@ export const TitleStyled = styled('h3').attrs<TitleProps>(({ htmlTag }) => ({
 
     ${DisplayStyle};
     ${TextAlignStyle};
+    ${PaddingStyle};
+    ${MarginStyle};
   `}
 `;
 
 export const TextStyled = styled('p').attrs<TextProps>(({ htmlTag }) => ({
   as: `${htmlTag ? htmlTag : 'p'}`,
 }))<TextProps>`
-  ${({ textColor = 'gray700', size = 'Small', fontWeight = 'Regular', htmlTag = 'p' }) => css`
+  ${({ textColor = StaticColor.Gray700, size = 'Small', fontWeight = 'Regular', htmlTag = 'p' }) => css`
     font-size: ${FontSize[size]};
     font-family: ${FontFamily.Primary};
 
-    color: ${(props) => props.theme.colors[textColor]};
+    color: ${textColor};
 
     ${size === 'XNano' && `line-height: ${LineHeight.Large};`}
     ${(size === 'Nano' || size === 'XSmall' || size === 'Small') && `line-height: ${LineHeight.Medium};`}
@@ -46,6 +50,8 @@ export const TextStyled = styled('p').attrs<TextProps>(({ htmlTag }) => ({
 
     ${DisplayStyle};
     ${TextAlignStyle};
+    ${PaddingStyle};
+    ${MarginStyle};
 
     ${htmlTag === 'b' || htmlTag === 'strong'
       ? css`

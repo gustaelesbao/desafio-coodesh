@@ -1,4 +1,4 @@
-import { BreakpointTypes } from 'atomic/constants';
+import { BreakpointTypes } from 'app/constants';
 
 export interface HiddenProps {
   hiddenXxl?: boolean;

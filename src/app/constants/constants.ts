@@ -40,8 +40,8 @@ export const Breakpoint = {
 
 export const ContainerMaxWidth = {
   XSmall: '400px',
-  Small: '780px',
-  Medium: '860px',
+  Small: '860px',
+  Medium: '920px',
   Large: '1080px',
   XLarge: '1152px',
   XXLarge: '1600px',

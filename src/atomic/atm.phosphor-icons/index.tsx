@@ -15,6 +15,14 @@ interface PhIconProps {
  */
 export const PhIcon = {
   Activity: (props: PhIconProps): JSX.Element => <PhIconSVG.Activity {...props} />,
+  ArrowLeft: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowLeft {...props} />,
+  ArrowDown: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowDown {...props} />,
+  ArrowRight: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowRight {...props} />,
+  ArrowUp: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowUp {...props} />,
+  ArrowUpLeft: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowUpLeft {...props} />,
+  ArrowUpRight: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowUpRight {...props} />,
+  ArrowDownLeft: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowDownLeft {...props} />,
+  ArrowDownRight: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowDownRight {...props} />,
   ArrowsOutLineVertical: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowsOutLineVertical {...props} />,
   CaretDown: (props: PhIconProps): JSX.Element => <PhIconSVG.CaretDown {...props} />,
   CaretUp: (props: PhIconProps): JSX.Element => <PhIconSVG.CaretUp {...props} />,
@@ -27,6 +35,8 @@ export const PhIcon = {
   InstagramLogo: (props: PhIconProps): JSX.Element => <PhIconSVG.InstagramLogo {...props} />,
   LinkedinLogo: (props: PhIconProps): JSX.Element => <PhIconSVG.LinkedinLogo {...props} />,
   Minus: (props: PhIconProps): JSX.Element => <PhIconSVG.Minus {...props} />,
+  Play: (props: PhIconProps): JSX.Element => <PhIconSVG.Play {...props} />,
+  Pause: (props: PhIconProps): JSX.Element => <PhIconSVG.Pause {...props} />,
   Record: (props: PhIconProps): JSX.Element => <PhIconSVG.Record {...props} />,
   RadioButton: (props: PhIconProps): JSX.Element => <PhIconSVG.RadioButton {...props} />,
   Warning: (props: PhIconProps): JSX.Element => <PhIconSVG.Warning {...props} />,

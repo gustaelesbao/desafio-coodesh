@@ -9,6 +9,7 @@ import { PaddingStyleProps } from 'app/styled-css/padding.style/padding';
 import { PositionStyleProps } from 'app/styled-css/position.style/position';
 import { WidthStyleProps } from 'app/styled-css/width.style/width';
 import { StaticColor } from 'app/constants';
+import { OverflowStyleProps } from 'app/styled-css/overflow.style/overflow';
 
 export interface BoxProps
   extends PaddingStyleProps,
@@ -18,8 +19,12 @@ export interface BoxProps
     WidthStyleProps,
     HeightStyleProps,
     PositionStyleProps,
+    OverflowStyleProps,
     BorderRadiusStyleProps {
   backgroundColor?: string;
 
-  htmlTag?: 'article' | 'aside' | 'div' | 'footer' | 'header' | 'main' | 'span' | 'section';
+  htmlTag?: 'article' | 'aside' | 'div' | 'footer' | 'header' | 'main' | 'span' | 'section' | 'nav';
+
+  borderType?: 'All' | 'Left' | 'Top' | 'Right' | 'Bottom' | 'Smooth';
+  borderColor?: string;
 }

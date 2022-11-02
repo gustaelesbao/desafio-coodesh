@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
-import { Radius } from 'atomic/constants';
-import { responsiveStyleProp } from 'redesign/utils/resposive-props';
+import { Radius } from 'app/constants';
+import { responsiveStyleProp } from 'utils/resposive-props';
 
 import { BorderRadiusStyleProps } from './border-radius.d';
 
