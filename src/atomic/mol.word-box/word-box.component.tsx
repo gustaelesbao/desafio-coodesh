@@ -4,7 +4,7 @@ import { WordBoxWrapperStyled } from './word-box.component.style';
 
 interface WordBoxProps {
   word: string;
-  phonetics: string;
+  phonetic: string;
 }
 
 export const WordBox = (props: WordBoxProps) => {
@@ -15,7 +15,7 @@ export const WordBox = (props: WordBoxProps) => {
       </Title>
 
       <Title fontWeight='Medium' size='XLarge'>
-        {props.phonetics}
+        {props.phonetic}
       </Title>
     </WordBoxWrapperStyled>
   );

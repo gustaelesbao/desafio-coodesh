@@ -41,8 +41,8 @@ export const RowStyled = styled.div<RowProps>`
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 
-  margin-left: -${gridConfigs.xxl?.gutter};
-  margin-right: -${gridConfigs.xxl?.gutter};
+  margin-left: -${gridConfigs.xs?.gutter};
+  margin-right: -${gridConfigs.xs?.gutter};
 
   ${PositionStyle};
 

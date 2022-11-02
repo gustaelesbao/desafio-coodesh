@@ -7,6 +7,7 @@ export const TabsRootStyled = styled(TabsPrimitive.Root)`
   flex-direction: column;
 
   width: 100%;
+  height: 100%;
 `;
 
 export const TabsListStyled = styled(TabsPrimitive.List)`
@@ -14,6 +15,10 @@ export const TabsListStyled = styled(TabsPrimitive.List)`
 
   gap: ${Spacing.Size2X};
 `;
+
+interface TabsTriggerStyledProps extends TabsPrimitive.TabsTriggerProps {
+  resetStyled?: boolean;
+}
 
 export const TabsTriggerStyled = styled(TabsPrimitive.Trigger)`
   all: unset;
@@ -23,6 +28,8 @@ export const TabsTriggerStyled = styled(TabsPrimitive.Trigger)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 
   font-size: ${FontSize.XSmall};
   font-family: ${FontFamily.Primary};
@@ -47,6 +54,8 @@ export const TabsTriggerStyled = styled(TabsPrimitive.Trigger)`
   &[data-state='active'] {
     background-color: ${StaticColor.Gray850};
     color: ${StaticColor.White};
+
+    cursor: default;
 
     &:hover {
       background-color: ${StaticColor.Gray900};

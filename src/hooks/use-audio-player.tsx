@@ -8,17 +8,14 @@ export const useAudioPlayer = (audio: React.MutableRefObject<HTMLAudioElement>) 
 
   useEffect(() => {
     const audioItem = audio.current;
-    console.log(audioItem.currentTime);
 
     // state setters wrappers
     const setAudioData = () => {
-      console.log('loaded');
       setDuration(audioItem.duration);
       setCurTime(audioItem.currentTime);
     };
 
     const setAudioTime = () => {
-      console.log('timeupdate');
       setCurTime(audioItem.currentTime);
     };
 

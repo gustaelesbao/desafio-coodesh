@@ -15,6 +15,14 @@ interface PhIconProps {
  */
 export const PhIcon = {
   Activity: (props: PhIconProps): JSX.Element => <PhIconSVG.Activity {...props} />,
+  ArrowLeft: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowLeft {...props} />,
+  ArrowDown: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowDown {...props} />,
+  ArrowRight: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowRight {...props} />,
+  ArrowUp: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowUp {...props} />,
+  ArrowUpLeft: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowUpLeft {...props} />,
+  ArrowUpRight: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowUpRight {...props} />,
+  ArrowDownLeft: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowDownLeft {...props} />,
+  ArrowDownRight: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowDownRight {...props} />,
   ArrowsOutLineVertical: (props: PhIconProps): JSX.Element => <PhIconSVG.ArrowsOutLineVertical {...props} />,
   CaretDown: (props: PhIconProps): JSX.Element => <PhIconSVG.CaretDown {...props} />,
   CaretUp: (props: PhIconProps): JSX.Element => <PhIconSVG.CaretUp {...props} />,
