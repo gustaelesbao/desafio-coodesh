@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const WordBoxWrapperStyled = styled.div`
   width: 100%;
-  height: ${Spacing.Size52X};
+  height: ${Spacing.Size36X};
 
   background-color: ${StaticColor.Primary100};
   border-radius: ${Radius.Medium};
@@ -13,5 +13,5 @@ export const WordBoxWrapperStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${Spacing.Size5X};
+  gap: ${Spacing.Size3X};
 `;

@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { responsiveStyleProp } from 'utils/resposive-props';
 
-import { HeightStyleProps } from './height';
+import { HeightStyleProps } from './height.d';
 
 export const HeightStyle = css<HeightStyleProps>`
   ${(props) => css`

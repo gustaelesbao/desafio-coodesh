@@ -488,6 +488,22 @@
     "@radix-ui/react-use-callback-ref" "1.0.0"
     "@radix-ui/react-use-controllable-state" "1.0.0"
 
+"@radix-ui/react-scroll-area@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-scroll-area/-/react-scroll-area-1.0.1.tgz#085cbc590a6d45a41dae3ad28187e59e537f0806"
+  integrity sha512-5OxAnuLUnrvJ183kVPAQUozWPbqufGP3l9SEnbicVnUniWkc5KQH4NFY4UBu1OTY9o3uZR97oBVSm7NgFOZvng==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/number" "1.0.0"
+    "@radix-ui/primitive" "1.0.0"
+    "@radix-ui/react-compose-refs" "1.0.0"
+    "@radix-ui/react-context" "1.0.0"
+    "@radix-ui/react-direction" "1.0.0"
+    "@radix-ui/react-presence" "1.0.0"
+    "@radix-ui/react-primitive" "1.0.1"
+    "@radix-ui/react-use-callback-ref" "1.0.0"
+    "@radix-ui/react-use-layout-effect" "1.0.0"
+
 "@radix-ui/react-separator@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-separator/-/react-separator-1.0.1.tgz#0ff3036c7f499fee9ea99268dc9ebf16055e356f"
