@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Spacing, StaticColor } from 'app/constants';
-import { SelectedWordContext } from 'app/contexts/selected-word.context';
+import { WordContext } from 'app/contexts/word.context';
 import { Button } from 'atomic/atm.button';
 import { Flex } from 'atomic/atm.flex';
 import { PhIcon } from 'atomic/atm.phosphor-icons';
@@ -19,7 +19,7 @@ interface WordInfosProps {
 }
 
 export const WordInfos = ({ wordList }: WordInfosProps) => {
-  const { selectedWord, setSelectedWord } = useContext(SelectedWordContext);
+  const { selectedWord, setSelectedWord } = useContext(WordContext);
   const slugfiedWord = encodeURI(selectedWord);
 
   const fetchWord = async () => {
