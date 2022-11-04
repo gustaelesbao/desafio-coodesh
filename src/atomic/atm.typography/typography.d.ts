@@ -1,12 +1,8 @@
 import { DefaultTheme } from 'styled-components';
 
 import { FontSizes, FontWeight } from 'app/constants';
-import { DisplayStyleProps } from 'app/styled-css/display.style/display';
-import { TextAlignStyleProps } from 'app/styled-css/text-align/text-align';
+import { DisplayStyleProps, TextAlignStyleProps, MarginStyleProps, PaddingStyleProps } from 'app/styled-css';
 import React from 'react';
-import { MarginStyleProps } from 'app/styled-css/margin.style/margin';
-import { PaddingStyleProps } from 'app/styled-css/padding.style/padding';
-
 export interface TitleProps
   extends DisplayStyleProps,
     MarginStyleProps,

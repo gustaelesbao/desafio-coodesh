@@ -9,30 +9,43 @@ import { Text } from 'atomic/atm.typography';
 import { DesktopHeader, HeaderHeight } from 'atomic/org.desktop-header';
 import { WordInfos } from 'components/word-infos.component';
 import { WordsList } from 'components/words-list.component';
-import { DATA_MOCKED_WORD_LIST } from 'components/words-list.component/DATA_MOCKED';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import type { GetServerSideProps, NextPage } from 'next';
+import { WordContext } from 'app/contexts/word.context';
+import { useContext, useEffect } from 'react';
+import { ParsedUrlQuery } from 'querystring';
+import { DATA_MOCKED_WORD_LIST } from 'components/words-list.component/DATA_MOCKED';
+import { isAValidWord } from 'utils/string';
 
-type HomePageProps = { activeTab: string };
+interface HomePageProps {
+  currentUrl: ParsedUrlQuery;
+}
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async (ctx) => {
-  const activeTab = ctx.req.url.split('?')[1] || '';
-
-  if (activeTab.includes('history')) {
-    return { props: { activeTab: 'history' } };
-  }
-
-  if (activeTab.includes('favorites')) {
-    return { props: { activeTab: 'favorites' } };
-  }
-
-  return { props: { activeTab: 'word-list' } };
-};
-
-const HomePage: NextPage<HomePageProps> = ({ activeTab }) => {
+const HomePage: NextPage<HomePageProps> = ({ currentUrl }) => {
   const router = useRouter();
+
+  const { setSelectedWord, history, favorites, setHistory } = useContext(WordContext);
+
+  const validWordList = DATA_MOCKED_WORD_LIST.filter((word) => isAValidWord(word));
+
+  const currentActiveTabByUrl = () => {
+    if (currentUrl.activeTab && typeof currentUrl.activeTab === 'string') return currentUrl.activeTab;
+    return 'word-list';
+  };
+
+  useEffect(() => {
+    if (currentUrl.selectedWord && typeof currentUrl.selectedWord === 'string') {
+      setSelectedWord(currentUrl.selectedWord);
+
+      if (Array.isArray(favorites)) {
+        setHistory([...history, currentUrl.selectedWord]);
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <ScrollArea type='hover' height='100vh'>
@@ -55,7 +68,7 @@ const HomePage: NextPage<HomePageProps> = ({ activeTab }) => {
                 >
                   <Space size={Spacing.Size9X} />
 
-                  <WordInfos />
+                  <WordInfos wordList={validWordList} />
 
                   <Space size={Spacing.Size10X} />
                 </Flex.Item>
@@ -65,7 +78,10 @@ const HomePage: NextPage<HomePageProps> = ({ activeTab }) => {
                 <Space size={Spacing.Size9X} />
 
                 <Box flex={1} padding={Spacing.Size6X} borderType='All' display='flex' flexDirection='column'>
-                  <Tabs defaultValue={activeTab} onValueChange={(value) => router.push('?active-tab=' + value)}>
+                  <Tabs
+                    defaultValue={currentActiveTabByUrl()}
+                    onValueChange={(value) => router.push({ query: { ...router.query, activeTab: value } })}
+                  >
                     <Tabs.List>
                       <Tabs.Trigger value='word-list'>Word list</Tabs.Trigger>
                       <Tabs.Trigger value='history'>History</Tabs.Trigger>
@@ -83,9 +99,7 @@ const HomePage: NextPage<HomePageProps> = ({ activeTab }) => {
                         position='relative'
                         height='100%'
                       >
-                        <ScrollArea height='100%'>
-                          <WordsList data={DATA_MOCKED_WORD_LIST} />
-                        </ScrollArea>
+                        <WordsList wordList={validWordList} />
                       </Box>
                     </Tabs.Content>
                     <Tabs.Content value='history'>
@@ -97,9 +111,7 @@ const HomePage: NextPage<HomePageProps> = ({ activeTab }) => {
                         position='relative'
                         height='100%'
                       >
-                        <Text textAlign='center' paddingTopBottom={Spacing.Size4X}>
-                          No word was found.
-                        </Text>
+                        <WordsList wordList={history} />
                       </Box>
                     </Tabs.Content>
                     <Tabs.Content value='favorites'>
@@ -111,9 +123,7 @@ const HomePage: NextPage<HomePageProps> = ({ activeTab }) => {
                         position='relative'
                         height='100%'
                       >
-                        <Text textAlign='center' paddingTopBottom={Spacing.Size4X}>
-                          No word was found.
-                        </Text>
+                        <WordsList wordList={favorites} />
                       </Box>
                     </Tabs.Content>
                   </Tabs>
@@ -127,6 +137,12 @@ const HomePage: NextPage<HomePageProps> = ({ activeTab }) => {
       </Flex>
     </ScrollArea>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async (ctx) => {
+  const url = ctx.query;
+
+  return { props: { currentUrl: url } };
 };
 
 export default HomePage;

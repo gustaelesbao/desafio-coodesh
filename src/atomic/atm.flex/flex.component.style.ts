@@ -1,17 +1,23 @@
 import styled, { css } from 'styled-components';
 
-import { FlexStyle } from 'app/styled-css/flex.style/flex.style';
-import { HeightStyle } from 'app/styled-css/height.style/height.style';
-import { MarginStyle } from 'app/styled-css/margin.style/margin.style';
-import { PaddingStyle } from 'app/styled-css/padding.style/padding.style';
-import { WidthStyle } from 'app/styled-css/width.style/width.style';
+import {
+  FlexStyle,
+  HeightStyle,
+  MarginStyle,
+  PaddingStyle,
+  WidthStyle,
+  OverflowStyle,
+  PositionStyle,
+  LeftStyle,
+  TopStyle,
+  RightStyle,
+  BottomStyle,
+} from 'app/styled-css';
 
-import { FlexProps } from './flex';
 import { StaticColor } from 'app/constants';
-import { OverflowStyle } from 'app/styled-css/overflow.style/overflow.style';
-import { PositionStyle } from 'app/styled-css/position.style/position.style';
+import { FlexProps } from './flex';
 
-export const FlexStyled = styled('div').attrs<FlexProps>(({ htmlTag }) => ({
+export const FlexStyled = styled.div.attrs<FlexProps>(({ htmlTag }) => ({
   as: `${htmlTag ? htmlTag : 'div'}`,
 }))<FlexProps>`
   ${({ backgroundColor = StaticColor.Transparent }) => css`
@@ -24,7 +30,11 @@ export const FlexStyled = styled('div').attrs<FlexProps>(({ htmlTag }) => ({
     ${FlexStyle};
     ${WidthStyle};
     ${HeightStyle};
-    ${PositionStyle}
+    ${PositionStyle};
+    ${LeftStyle};
+    ${TopStyle};
+    ${RightStyle};
+    ${BottomStyle};
     ${OverflowStyle};
   `}
 `;
@@ -43,7 +53,11 @@ export const FlexItemStyled = styled('div').attrs<FlexProps>(({ htmlTag }) => ({
     ${FlexStyle};
     ${WidthStyle};
     ${HeightStyle};
-    ${PositionStyle}
+    ${PositionStyle};
+    ${LeftStyle};
+    ${TopStyle};
+    ${RightStyle};
+    ${BottomStyle};
     ${OverflowStyle};
   `}
 `;
