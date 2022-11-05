@@ -1,7 +1,7 @@
-import { PositionStyleProps } from 'app/styled-css/position.style/position';
+import { PositionStyleProps, HeightStyleProps } from 'app/styled-css';
 import { HiddenProps, ReverseProps } from '../../configs/configs.d';
 
-export interface GridProps extends ReverseProps, HiddenProps, PositionStyleProps {
+export interface GridProps extends ReverseProps, HiddenProps, PositionStyleProps, HeightStyleProps {
   noGutter?: boolean;
 
   fluid?: boolean;

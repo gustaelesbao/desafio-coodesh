@@ -17,8 +17,8 @@ export const WordProvider = (props: React.PropsWithChildren) => {
   const initialRender = useRef(true);
 
   const [selectedWord, setSelectedWord] = useState('a');
-  const [history, setHistory] = useState<string[]>();
-  const [favorites, setFavorites] = useState<string[]>();
+  const [history, setHistory] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<string[]>([]);
 
   useEffect(() => {
     const localstorageHistory = JSON.parse(localStorage.getItem('HISTORY'));

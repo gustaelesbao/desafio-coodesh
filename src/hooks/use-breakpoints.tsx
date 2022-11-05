@@ -10,8 +10,9 @@ export default function useBreakpoints() {
     isLg: useMediaQuery(MediaQueriesOnly.lg),
     isXl: useMediaQuery(MediaQueriesOnly.xl),
     isXxl: useMediaQuery(MediaQueriesOnly.xxl),
-    active: 'xs',
+    active: 'xxl',
   };
+
   if (breakpoints.isXs) breakpoints.active = 'xs';
   if (breakpoints.isSm) breakpoints.active = 'sm';
   if (breakpoints.isMd) breakpoints.active = 'md';

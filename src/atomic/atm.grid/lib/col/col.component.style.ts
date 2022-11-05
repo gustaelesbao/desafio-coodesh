@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
-import { PositionStyle } from 'app/styled-css/position.style/position.style';
 import { BreakpointTypes, MediaQueries } from 'app/constants';
 
 import { gridConfigs } from '../../configs/configs';
 import { ColProps } from './col.d';
 import { enumToArray } from 'utils/array';
 import { transformToResponsiveProp } from 'utils/string';
+import { HeightStyle, PositionStyle } from 'app/styled-css';
 
 const reverseColStyle = css`
   -webkit-box-orient: vertical;
@@ -66,6 +66,7 @@ export const ColStyled = styled.div<ColProps>`
     `};
 
   ${PositionStyle};
+  ${HeightStyle};
 
   ${(props) => (props.hAlign ? `align-items: ${props.hAlign}` : 'align-items: initial;')};
   ${(props) => (props.vAlign ? `justify-content: ${props.vAlign}` : 'justify-content: stretch;')};
