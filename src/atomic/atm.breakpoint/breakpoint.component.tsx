@@ -2,7 +2,7 @@ import React from 'react';
 
 import useBreakpoints from 'hooks/use-breakpoints';
 
-interface BreakpointProps {
+interface BreakpointProps extends React.PropsWithChildren {
   hideXs?: boolean;
   hideSm?: boolean;
   hideMd?: boolean;
@@ -11,15 +11,15 @@ interface BreakpointProps {
   hideXxl?: boolean;
 }
 
-export const Breakpoint: React.FC<BreakpointProps> = ({ hideXs, hideSm, hideMd, hideLg, hideXl, hideXxl }, props) => {
+export const Breakpoint = (props: BreakpointProps) => {
   const { active } = useBreakpoints();
 
-  if (!hideXs && active === 'xs') return props.children;
-  if (!hideSm && active === 'sm') return props.children;
-  if (!hideMd && active === 'md') return props.children;
-  if (!hideLg && active === 'lg') return props.children;
-  if (!hideXl && active === 'xl') return props.children;
-  if (!hideXxl && active === 'xxl') return props.children;
+  if (!props.hideXs && active === 'xs') return <>{props.children}</>;
+  if (!props.hideSm && active === 'sm') return <>{props.children}</>;
+  if (!props.hideMd && active === 'md') return <>{props.children}</>;
+  if (!props.hideLg && active === 'lg') return <>{props.children}</>;
+  if (!props.hideXl && active === 'xl') return <>{props.children}</>;
+  if (!props.hideXxl && active === 'xxl') return <>{props.children}</>;
 
   return <></>;
 };

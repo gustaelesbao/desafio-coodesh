@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { PositionStyle } from 'app/styled-css/position.style/position.style';
+import { PositionStyle, HeightStyle, FlexStyle } from 'app/styled-css';
 import { BreakpointTypes, MediaQueries } from 'app/constants';
 import { enumToArray } from 'utils/array';
 import { transformToResponsiveProp } from 'utils/string';
@@ -45,6 +45,8 @@ export const RowStyled = styled.div<RowProps>`
   margin-right: -${gridConfigs.xs?.gutter};
 
   ${PositionStyle};
+  ${HeightStyle};
+  ${FlexStyle};
 
   ${(props) => props.reverse && (props.reverseDirection === 'column' ? reverseColStyle : reverseRowStyle)};
 

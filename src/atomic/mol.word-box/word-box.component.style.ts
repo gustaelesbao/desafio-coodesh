@@ -3,7 +3,11 @@ import styled from 'styled-components';
 
 export const WordBoxWrapperStyled = styled.div`
   width: 100%;
-  height: ${Spacing.Size36X};
+  min-height: ${Spacing.Size36X};
+
+  position: relative;
+
+  padding: ${Spacing.Size3X} ${Spacing.Size4X};
 
   background-color: ${StaticColor.Primary100};
   border-radius: ${Radius.Medium};

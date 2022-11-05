@@ -39,8 +39,8 @@ export const Breakpoint = {
 };
 
 export const ContainerMaxWidth = {
-  XSmall: '400px',
-  Small: '860px',
+  XSmall: '440px',
+  Small: '720px',
   Medium: '920px',
   Large: '1080px',
   XLarge: '1152px',
@@ -58,19 +58,19 @@ export enum BreakpointTypes {
 
 export const MediaQueries = {
   xs: `(max-width: ${Breakpoint.XSmall})`,
-  sm: `(min-width: ${Breakpoint.Small})`,
-  md: `(min-width: ${Breakpoint.Medium})`,
-  lg: `(min-width: ${Breakpoint.Large})`,
-  xl: `(min-width: ${Breakpoint.XLarge})`,
+  sm: `(min-width: calc(${Breakpoint.XSmall} + 1px))`,
+  md: `(min-width: calc(${Breakpoint.Small} + 1px))`,
+  lg: `(min-width: calc(${Breakpoint.Medium} + 1px))`,
+  xl: `(min-width: calc(${Breakpoint.Large} + 1px))`,
   xxl: `(min-width: ${Breakpoint.XXLarge})`,
 };
 
 export const MediaQueriesOnly = {
   xs: `(max-width: ${Breakpoint.XSmall})`,
-  sm: `(max-width: ${Breakpoint.Small}) and (min-width: calc(${Breakpoint.XSmall} + 1px))`,
-  md: `(max-width: ${Breakpoint.Medium}) and (min-width: calc(${Breakpoint.Small} + 1px))`,
-  lg: `(max-width: ${Breakpoint.Large}) and (min-width: calc(${Breakpoint.Medium} + 1px))`,
-  xl: `(max-width: ${Breakpoint.XLarge}) and (min-width: calc(${Breakpoint.Large} + 1px))`,
+  sm: `(min-width: calc(${Breakpoint.XSmall} + 1px)) and (max-width: ${Breakpoint.Small})`,
+  md: `(min-width: calc(${Breakpoint.Small} + 1px)) and (max-width: ${Breakpoint.Medium})`,
+  lg: `(min-width: calc(${Breakpoint.Medium} + 1px)) and (max-width: ${Breakpoint.Large})`,
+  xl: `(min-width: calc(${Breakpoint.Large} + 1px)) and (max-width: ${Breakpoint.XLarge})`,
   xxl: `(min-width: ${Breakpoint.XXLarge})`,
 };
 

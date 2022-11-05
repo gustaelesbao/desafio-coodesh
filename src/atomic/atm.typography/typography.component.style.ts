@@ -3,10 +3,7 @@ import styled, { css } from 'styled-components';
 import { FontFamily, FontSize, FontWeight, LineHeight, StaticColor } from 'app/constants';
 
 import { TitleProps, TextProps } from './typography';
-import { DisplayStyle } from 'app/styled-css/display.style/display.style';
-import { TextAlignStyle } from 'app/styled-css/text-align/text-align.style';
-import { PaddingStyle } from 'app/styled-css/padding.style/padding.style';
-import { MarginStyle } from 'app/styled-css/margin.style/margin.style';
+import { DisplayStyle, TextAlignStyle, PaddingStyle, MarginStyle } from 'app/styled-css';
 
 export const TitleStyled = styled('h3').attrs<TitleProps>(({ htmlTag }) => ({
   as: `${htmlTag ? htmlTag : 'h3'}`,

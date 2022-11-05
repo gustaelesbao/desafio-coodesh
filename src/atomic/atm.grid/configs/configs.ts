@@ -30,12 +30,12 @@ export const gridConfigs: Breakpoints = {
     columns: 12,
     breakpoint: `${Breakpoint.Small}`,
     containerMaxWidth: `${ContainerMaxWidth.Small}`,
-    gutter: `${Spacing.Size4X}`,
+    gutter: `${Spacing.Size3X}`,
   },
   [BreakpointTypes.xs]: {
     columns: 12,
     breakpoint: `${Breakpoint.XSmall}`,
     containerMaxWidth: `${ContainerMaxWidth.XSmall}`,
-    gutter: `${Spacing.Size4X}`,
+    gutter: `${Spacing.Size3X}`,
   },
 };

@@ -32,7 +32,7 @@ export const AudioPlayer = (props: AudioPlayerProps) => {
       )}
 
       <Slider
-        value={[curTime * 100]}
+        value={[(curTime / duration) * 100]}
         onValueChange={(value) => {
           setClickedTime(value[0] / 100);
         }}
