@@ -1,11 +1,13 @@
 import { Spacing } from 'app/constants';
 import { WordContext } from 'app/contexts/word.context';
+import { Breakpoint } from 'atomic/atm.breakpoint';
 import { Flex } from 'atomic/atm.flex';
 import { Input } from 'atomic/atm.input';
 import { Loader } from 'atomic/atm.loader';
 import { PhIcon } from 'atomic/atm.phosphor-icons';
 import { Space } from 'atomic/atm.space';
 import { Text } from 'atomic/atm.typography';
+import { Dialog } from 'atomic/org.dialog';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react';
 import useSWR from 'swr';
@@ -35,7 +37,11 @@ export const WordsList = ({ wordList }: WordsListProps) => {
     setSelectedWord(word);
     router.push({ query: { ...router.query, selectedWord: word } });
 
-    if (!history.find((historyWord) => historyWord === word)) {
+    if (!history) {
+      setHistory([word]);
+    }
+
+    if (Array.isArray(history) && !history.find((historyWord) => historyWord === word)) {
       setHistory([...history, word]);
     }
   };
@@ -70,9 +76,29 @@ export const WordsList = ({ wordList }: WordsListProps) => {
                 .map(
                   (word, index) =>
                     index < scrollCount * 60 && (
-                      <WordStyled selected={word === selectedWord} key={index} onClick={() => handleClickWord(word)}>
-                        {word}
-                      </WordStyled>
+                      <>
+                        <Breakpoint hideXs hideSm>
+                          <WordStyled
+                            selected={word === selectedWord}
+                            key={index}
+                            onClick={() => handleClickWord(word)}
+                          >
+                            {word}
+                          </WordStyled>
+                        </Breakpoint>
+
+                        <Breakpoint hideMd hideLg hideXl hideXxl>
+                          <Dialog.Trigger>
+                            <WordStyled
+                              selected={word === selectedWord}
+                              key={index}
+                              onClick={() => handleClickWord(word)}
+                            >
+                              {word}
+                            </WordStyled>
+                          </Dialog.Trigger>
+                        </Breakpoint>
+                      </>
                     )
                 )}
             </WordsListWrapperStyled>

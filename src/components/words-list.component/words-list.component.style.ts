@@ -25,14 +25,18 @@ export const WordListScrollAreaStyled = styled.div`
 
 export const WordsListWrapperStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: ${Spacing.Size0_5X};
 
   width: 100%;
 
   flex: 1;
 
-  ${`@media ${MediaQueries.md}`} {
+  ${`@media ${MediaQueries.sm}`} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  ${`@media ${MediaQueries.lg}`} {
     grid-template-columns: repeat(4, 1fr);
   }
 

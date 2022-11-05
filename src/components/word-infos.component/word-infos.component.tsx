@@ -9,29 +9,20 @@ import { Space } from 'atomic/atm.space';
 import { Text, Title } from 'atomic/atm.typography';
 import { AudioPlayer } from 'atomic/mol.audio-player';
 import { WordBox } from 'atomic/mol.word-box';
-import React, { useContext, useEffect, useState } from 'react';
-import { firstLetterToUpperCase, slugfy } from 'utils/string';
-import useSWR from 'swr';
+import React, { useContext } from 'react';
+import { firstLetterToUpperCase } from 'utils/string';
 import { WordInfosShimmer } from './word-infos.shimmer';
+import { WordData } from 'app/DTOs/word-data.DTO';
 
 interface WordInfosProps {
   wordList: string[];
+  wordData: WordData[];
 }
 
-export const WordInfos = ({ wordList }: WordInfosProps) => {
+export const WordInfos = ({ wordList, wordData }: WordInfosProps) => {
   const { selectedWord, setSelectedWord } = useContext(WordContext);
-  const slugfiedWord = encodeURI(selectedWord);
 
-  const fetchWord = async () => {
-    const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${slugfiedWord}`);
-    const wordInfos = await res.json();
-
-    return wordInfos;
-  };
-
-  const { data } = useSWR(`https://api.dictionaryapi.dev/api/v2/entries/en/${slugfiedWord}`, fetchWord);
-
-  const hasData = Array.isArray(data) && data.length > 0;
+  const hasData = Array.isArray(wordData) && wordData.length > 0;
 
   const currentWordIndex = wordList.indexOf(selectedWord);
 
@@ -43,17 +34,22 @@ export const WordInfos = ({ wordList }: WordInfosProps) => {
     currentWordIndex > 0 && setSelectedWord(wordList[currentWordIndex - 1]);
   };
 
-  return !data ? (
+  console.log(wordData);
+
+  return !wordData ? (
     <WordInfosShimmer />
   ) : (
     <Flex flex={1} flexDirection='column' position='relative'>
-      <WordBox word={hasData ? data[0]?.word : 'Error'} phonetic={hasData ? data[0]?.phonetic : 'No word was found.'} />
+      <WordBox
+        word={hasData ? wordData[0]?.word : 'Error'}
+        phonetic={hasData ? wordData[0]?.phonetic : 'No word was found.'}
+      />
 
       <Space size={Spacing.Size3X} />
 
-      {hasData && data[0]?.phonetics[0]?.audio && (
+      {hasData && wordData[0]?.phonetics[0]?.audio && (
         <>
-          <AudioPlayer src={data[0]?.phonetics[0].audio} />
+          <AudioPlayer src={wordData[0]?.phonetics[0].audio} />
           <Space size={Spacing.Size3X} />
         </>
       )}
@@ -75,7 +71,7 @@ export const WordInfos = ({ wordList }: WordInfosProps) => {
         </Button>
       </Flex>
 
-      {!Array.isArray(data) && (
+      {!Array.isArray(wordData) && (
         <>
           <Space size={Spacing.Size3X} />
           <Title size='Small' fontWeight='Bold'>
@@ -101,7 +97,7 @@ export const WordInfos = ({ wordList }: WordInfosProps) => {
       <ScrollArea type='hover'>
         <Flex.Item gap={Spacing.Size4X} flexDirection='column' position='relative'>
           {hasData &&
-            data[0]?.meanings.map((meaning, index) => (
+            wordData[0]?.meanings.map((meaning, index) => (
               <Flex flexDirection='column' key={meaning.partOfSpeech + index} gap={Spacing.Size0_5X}>
                 <Title size='Small' fontWeight='Bold'>
                   {firstLetterToUpperCase(meaning.partOfSpeech)}

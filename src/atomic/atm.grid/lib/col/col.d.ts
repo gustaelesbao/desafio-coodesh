@@ -1,4 +1,4 @@
-import { PositionStyleProps } from 'app/styled-css/position.style/position';
+import { HeightStyleProps, PositionStyleProps } from 'app/styled-css';
 
 import { HiddenProps, ReverseProps } from '../../configs/configs.d';
 
@@ -6,7 +6,7 @@ type VAlignTypes = 'stretch' | 'center' | 'flex-start' | 'flex-end' | 'baseline'
 
 type HAlignTypes = 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'initial' | 'inherit';
 
-export interface ColProps extends HiddenProps, ReverseProps, PositionStyleProps {
+export interface ColProps extends HiddenProps, ReverseProps, PositionStyleProps, HeightStyleProps {
   xxl?: number;
   xl?: number;
   lg?: number;

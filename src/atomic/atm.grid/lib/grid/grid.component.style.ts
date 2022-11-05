@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
-import { PositionStyle } from 'app/styled-css/position.style/position.style';
 import { BreakpointTypes, MediaQueries } from 'app/constants';
 import { enumToArray } from 'utils/array';
 import { transformToResponsiveProp } from 'utils/string';
 
 import { gridConfigs } from '../../configs/configs';
 import { GridProps } from './grid.d';
+import { HeightStyle, PositionStyle } from 'app/styled-css';
 
 const reverseGridStyle = css`
   -webkit-box-orient: vertical;
@@ -25,9 +25,13 @@ export const GridStyled = styled.div<GridProps>`
   margin-right: auto;
   width: 100%;
 
+  display: flex;
+  flex-direction: column;
+
   max-width: ${(props) => (props.fluidXxl ? `100%` : gridConfigs?.xs?.containerMaxWidth)};
 
   ${PositionStyle};
+  ${HeightStyle};
 
   ${enumToArray(BreakpointTypes).map(
     (breakpoint) => css<GridProps>`

@@ -16,6 +16,10 @@ export const WordBox = ({ word, phonetic }: WordBoxProps) => {
   const { favorites, setFavorites, selectedWord } = useContext(WordContext);
 
   const handleClickFavorite = () => {
+    if (!favorites) {
+      setFavorites([selectedWord]);
+    }
+
     if (Array.isArray(favorites)) {
       if (!favorites.find((favorite) => favorite === selectedWord)) {
         setFavorites([...favorites, selectedWord]);
