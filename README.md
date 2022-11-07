@@ -143,8 +143,6 @@ Todos os itens obrigatórios foram concluídos e também os itens diferenciais l
 
 **Diferencial 4** - Implementar SSR no projeto;
 
-**Diferencial 5** - Implementar o projeto com PWA.
-
 ## Instruções de uso
 
 Primeiro faça o clone do repositório
