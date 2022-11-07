@@ -32,7 +32,9 @@ export const DialogContentWrapperStyled = styled.div`
   transform: translate(-50%, -50%);
 
   width: 100%;
-  height: 100vh;
+  max-height: 90vh;
+
+  padding: ${Spacing.Size0X} ${Spacing.Size6X};
 
   @media (prefers-reduced-motion: no-preference) {
     animation: ${ContentShowAnimation} 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -45,7 +47,7 @@ export const DialogContentWrapperStyled = styled.div`
 
 export const DialogContentStyled = styled(DialogPrimitive.Content)`
   background-color: ${StaticColor.White};
-  border-radius: ${Radius.None};
+  border-radius: ${Radius.Medium};
 
   position: relative;
 
@@ -53,7 +55,7 @@ export const DialogContentStyled = styled(DialogPrimitive.Content)`
   flex-direction: column;
 
   width: 100%;
-  height: 100vh;
+  max-height: 90vh;
   padding: ${Spacing.Size0X};
 
   &:focus {
