@@ -21,7 +21,16 @@ export const DesktopHeader = () => {
           <Row vAlign='center'>
             <Col xs={6} vAlign='center'>
               <Title htmlTag='h1' textColor={StaticColor.Black} size='Medium' fontWeight='Bold'>
-                Logotipo
+                Desafio
+                <Title
+                  display='inline-block'
+                  htmlTag='h1'
+                  textColor={StaticColor.Primary500}
+                  size='Medium'
+                  fontWeight='Bold'
+                >
+                  Coodesh
+                </Title>
               </Title>
             </Col>
 
