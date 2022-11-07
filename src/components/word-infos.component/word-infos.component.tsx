@@ -9,32 +9,34 @@ import { Space } from 'atomic/atm.space';
 import { Text, Title } from 'atomic/atm.typography';
 import { AudioPlayer } from 'atomic/mol.audio-player';
 import { WordBox } from 'atomic/mol.word-box';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { firstLetterToUpperCase } from 'utils/string';
 import { WordInfosShimmer } from './word-infos.shimmer';
 import { WordData } from 'app/DTOs/word-data.DTO';
+import { WordDTO } from 'app/DTOs/word.DTO';
 
 interface WordInfosProps {
-  wordList: string[];
   wordData: WordData[];
+  wordList: WordDTO[];
 }
 
-export const WordInfos = ({ wordList, wordData }: WordInfosProps) => {
+export const WordInfos = ({ wordData, wordList }: WordInfosProps) => {
   const { selectedWord, setSelectedWord } = useContext(WordContext);
 
   const hasData = Array.isArray(wordData) && wordData.length > 0;
+  const currentWordItem = wordList?.find((word) => word.attributes.Word === selectedWord);
 
-  const currentWordIndex = wordList.indexOf(selectedWord);
+  const currentWordIndex = wordList?.findIndex((wordItem, index) => {
+    if (wordItem.id === currentWordItem.id) return index + 1;
+  });
 
   const handleNext = () => {
-    currentWordIndex + 1 < wordList.length && setSelectedWord(wordList[currentWordIndex + 1]);
+    currentWordIndex < wordList.length - 1 && setSelectedWord(wordList[currentWordIndex + 1].attributes.Word);
   };
 
   const handlePrevius = () => {
-    currentWordIndex > 0 && setSelectedWord(wordList[currentWordIndex - 1]);
+    currentWordIndex > 0 && setSelectedWord(wordList[currentWordIndex - 1].attributes.Word);
   };
-
-  console.log(wordData);
 
   return !wordData ? (
     <WordInfosShimmer />
@@ -54,22 +56,24 @@ export const WordInfos = ({ wordList, wordData }: WordInfosProps) => {
         </>
       )}
 
-      <Flex gap={Spacing.Size2X}>
-        <Button kind='secondary' size='Small' expanded onClick={handlePrevius} disabled={currentWordIndex === 0}>
-          <PhIcon.ArrowLeft />
-          Previus
-        </Button>
-        <Button
-          kind='secondary'
-          size='Small'
-          expanded
-          onClick={handleNext}
-          disabled={currentWordIndex + 1 === wordList.length}
-        >
-          Next
-          <PhIcon.ArrowRight />
-        </Button>
-      </Flex>
+      {wordList.length > 0 && (
+        <Flex gap={Spacing.Size2X}>
+          <Button kind='secondary' size='Small' expanded onClick={handlePrevius} disabled={currentWordIndex <= 0}>
+            <PhIcon.ArrowLeft />
+            Previus
+          </Button>
+          <Button
+            kind='secondary'
+            size='Small'
+            expanded
+            onClick={handleNext}
+            disabled={currentWordIndex === wordList.length - 1}
+          >
+            Next
+            <PhIcon.ArrowRight />
+          </Button>
+        </Flex>
+      )}
 
       {!Array.isArray(wordData) && (
         <>
