@@ -24,8 +24,8 @@ export const WordProvider = (props: React.PropsWithChildren) => {
     const localstorageHistory = JSON.parse(localStorage.getItem('HISTORY'));
     const localstorageFavorites = JSON.parse(localStorage.getItem('FAVORITES'));
 
-    setHistory(localstorageHistory);
-    setFavorites(localstorageFavorites);
+    setHistory(localstorageHistory || []);
+    setFavorites(localstorageFavorites || []);
   }, []);
 
   useEffect(() => {
