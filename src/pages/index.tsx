@@ -68,7 +68,7 @@ const HomePage: NextPage<HomePageProps> = ({ currentUrl }) => {
   return (
     <ScrollArea type='hover' height='100vh'>
       <Head>
-        <title>Create Next App</title>
+        <title>Desafio Coodesh</title>
         <meta name='description' content='Desafio Coodesh' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
