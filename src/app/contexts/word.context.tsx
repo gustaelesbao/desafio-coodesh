@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, { createContext, useEffect, useRef, useState } from 'react';
 
 interface WordData {
@@ -15,6 +16,7 @@ export const WordContext = createContext<WordData>(null);
 
 export const WordProvider = (props: React.PropsWithChildren) => {
   const initialRender = useRef(true);
+  const router = useRouter();
 
   const [selectedWord, setSelectedWord] = useState('a');
   const [history, setHistory] = useState<string[]>([]);
@@ -27,6 +29,11 @@ export const WordProvider = (props: React.PropsWithChildren) => {
     setHistory(localstorageHistory || []);
     setFavorites(localstorageFavorites || []);
   }, []);
+
+  useEffect(() => {
+    router.push({ query: { ...router.query, 'selected-word': selectedWord } });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedWord]);
 
   useEffect(() => {
     if (initialRender.current) {

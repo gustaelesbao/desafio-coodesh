@@ -24,7 +24,7 @@ export const DesktopHeader = () => {
                 Desafio
                 <Title
                   display='inline-block'
-                  htmlTag='h1'
+                  htmlTag='span'
                   textColor={StaticColor.Primary500}
                   size='Medium'
                   fontWeight='Bold'
