@@ -10,7 +10,7 @@ import { WordInfos } from 'components/word-infos.component';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next';
 import { WordContext } from 'app/contexts/word.context';
 import { useContext, useEffect, useState } from 'react';
 import { ParsedUrlQuery } from 'querystring';
@@ -22,9 +22,10 @@ import { IconButton } from 'atomic/atm.icon-button';
 import { PhIcon } from 'atomic/atm.phosphor-icons';
 import { HistoryWordList } from 'components/history-word-list.component';
 import { WordList } from 'components/word-list.component';
-import { fetcher } from 'utils/fetcher';
 import { FavoritesWordList } from 'components/favorites-word-list.component';
 import { WordDTO } from 'app/DTOs/word.DTO';
+import { fetcher } from 'utils/fetcher';
+import { currentActiveTabByUrl } from 'utils/current-active-tab-by-url';
 
 interface HomePageProps {
   currentUrl: ParsedUrlQuery;
@@ -33,8 +34,9 @@ interface HomePageProps {
 const HomePage: NextPage<HomePageProps> = ({ currentUrl }) => {
   const { selectedWord, setSelectedWord, history, setHistory } = useContext(WordContext);
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
-  const pageSize = 60;
+  const activeTabByUrl = currentActiveTabByUrl(currentUrl);
   const router = useRouter();
+  const pageSize = 60;
 
   const { data: wordData } = useSWR(
     `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURI(selectedWord)}`,
@@ -51,17 +53,12 @@ const HomePage: NextPage<HomePageProps> = ({ currentUrl }) => {
 
   const wordList: WordDTO[] = data ? [].concat(...data.map((d1) => d1.data)) : [];
 
-  const currentActiveTabByUrl = () => {
-    if (currentUrl.activeTab && typeof currentUrl.activeTab === 'string') return currentUrl.activeTab;
-    return 'word-list';
-  };
-
   useEffect(() => {
-    if (currentUrl.selectedWord && typeof currentUrl.selectedWord === 'string') {
-      setSelectedWord(currentUrl.selectedWord);
+    if (currentUrl['selected-word'] && typeof currentUrl['selected-word'] === 'string') {
+      setSelectedWord(currentUrl['selected-word']);
 
       if (Array.isArray(history)) {
-        setHistory([...history, currentUrl.selectedWord]);
+        setHistory([...history, currentUrl['selected-word']]);
       }
     }
 
@@ -103,8 +100,8 @@ const HomePage: NextPage<HomePageProps> = ({ currentUrl }) => {
                 <Box flex={1} padding={Spacing.Size6X} borderType='All' display='flex' flexDirection='column'>
                   <Dialog open={dialogIsOpen}>
                     <Tabs
-                      defaultValue={currentActiveTabByUrl()}
-                      onValueChange={(value) => router.push({ query: { ...router.query, activeTab: value } })}
+                      defaultValue={activeTabByUrl}
+                      onValueChange={(value) => router.push({ query: { ...router.query, 'active-tab': value } })}
                     >
                       <Tabs.List>
                         <Tabs.Trigger value='word-list'>Word list</Tabs.Trigger>
@@ -199,7 +196,7 @@ const HomePage: NextPage<HomePageProps> = ({ currentUrl }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const url = ctx.query;
 
   return { props: { currentUrl: url } };

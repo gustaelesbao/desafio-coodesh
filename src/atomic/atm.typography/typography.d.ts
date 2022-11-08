@@ -23,7 +23,7 @@ export interface TitleProps
   /** Tipos de tag html:
    * <h1> a <h6> - Títulos da página, sendo <h1> o mais importante (e único da página) e <h6> o menos importante
    */
-  htmlTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  htmlTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
 }
 
 export interface TextProps

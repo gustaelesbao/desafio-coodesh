@@ -17,7 +17,7 @@ export const Word = ({ onClick, word, setDialogIsOpen }: WordProps) => {
 
   const handleClickWord = (str: string) => {
     setSelectedWord(str);
-    router.push({ query: { ...router.query, selectedWord: str } });
+    router.push({ query: { ...router.query, 'selected-word': str } });
 
     if (onClick) onClick();
   };
